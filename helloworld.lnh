@@ -1,0 +1,3 @@
+sect main
+    print "Hello World!"
+    ;
