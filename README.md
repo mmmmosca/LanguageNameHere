@@ -1,4 +1,4 @@
-# LanguageNameHere Language Reference
+# LanguageNameHere
 
 ## Variables
 ```
