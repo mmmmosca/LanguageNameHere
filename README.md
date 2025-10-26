@@ -58,7 +58,7 @@ $x = %           # Read input from user
 
 ## Program Structure
 ```
--- Every program must have a main section
+-- Every program must have a main and data section
 sect data
     # Your variables here
     ;
