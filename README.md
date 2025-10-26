@@ -1,4 +1,4 @@
-# LanguageNameHere
+# Timballo
 
 ## Variables
 ```
@@ -59,12 +59,18 @@ $x = %           # Read input from user
 ## Program Structure
 ```
 -- Every program must have a main section
+sect data
+    # Your variables here
+    ;
+
 sect main
     # Your code here
     ;
 
 -- Example of a complete program
-$counter = 0
+sect data
+    $counter = 0
+    ;
 
 sect loop
     print $counter
@@ -83,10 +89,10 @@ exit            # Terminate program execution
 ```
 
 ## Key Rules
-1. All variables start with `$`
+1. All variables start with `$` and can only be defined inside the data section
 2. Every section must end with `;`
-3. Every program must have a `main` section
+3. Every program must have a `main` and `data` section
 4. Strings must be in double quotes
 5. Comments start with `--`
 6. Sections can be called/jumped to using `@`
-7. File extension must be `.lnh`
+7. File extension must be `.tim`
