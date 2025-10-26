@@ -1,0 +1,13 @@
+sect data
+    $counter = 0
+;
+
+sect main
+    @loop
+;
+
+sect loop
+    print $counter
+    $counter = $counter + 1
+    if $counter < 5 then @loop
+;

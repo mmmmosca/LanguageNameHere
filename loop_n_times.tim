@@ -1,0 +1,21 @@
+sect data
+    $i = 0
+    ;
+
+sect set_num
+    print "Enter the number of iterations:"
+    $i = %
+    print "Now iterating:"
+    @loop
+    ;
+
+sect loop
+    print $i
+    $i = $i - 1
+    if $i == -1 then exit
+    @loop
+    ;
+
+sect main
+    @set_num
+    ;
