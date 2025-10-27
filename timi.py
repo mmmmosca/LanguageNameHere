@@ -215,4 +215,8 @@ def run_file(filename):
         print(format_error("Internal Error", f"An unexpected error occurred: {str(e)}"))
         sys.exit(1)
 
-run_file(sys.argv[1])
+try:
+    run_file(sys.argv[1])
+except Exception as e:
+    print(format_error("Internal Error", f"No file was specified.\nPlease specify a .tim file"))
+    sys.exit(1)
