@@ -60,23 +60,16 @@ def exec_line(s, line_number=None):
                 lhs, rhs = value.split(op)
                 rhs = rhs.strip()
                 lhs = lhs.strip()
-                if (lhs[1:] in variables):
-                    lhs = variables[lhs[1:]]
-                    if str(lhs).isdigit():
-                        lhs = str(lhs)
-                elif (rhs[1:] in variables):
-                    rhs = variables[rhs[1:]]
-                    if str(rhs).isdigit():
-                        rhs = str(rhs)
-                elif (lhs[1:] in variables and rhs[1:] in variables):
-                    lhs = variables[lhs[1:]]
-                    rhs = variables[rhs[1:]]
-                    if str(lhs).isdigit() and str(rhs).isdigit():
-                        lhs = str(lhs)
-                        rhs = str(rhs)
+                if lhs.startswith("$") and lhs[1:] in variables:
+                    lhs = str(variables[lhs[1:]])
+                if rhs.startswith("$") and rhs[1:] in variables:
+                    rhs = str(variables[rhs[1:]])
             
                 evaluated_value = lhs + op + rhs
-                value = str(eval(evaluated_value))
+                try:
+                    value = str(eval(evaluated_value))
+                except Exception as e:
+                    raise ClarityRuntimeError(f"Invalid expression '{evaluated_value}': {e}")
             
         if value.isdigit():
             value = int(value)
